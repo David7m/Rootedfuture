@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  xmlns:local="clr-namespace:Rootedfuture.Extensions"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="Rootedfuture.Views.PhotoPreview">
+    <ContentPage.Content>
+        <RelativeLayout Padding="0" HorizontalOptions="FillAndExpand">
+            <!-- Background -->
+            <!--BackgroundImageSource="{local:ImageResourceExtension Rootedfuture.Assets.Images.app_bg.jpg}"-->
+            <Image
+            Aspect="AspectFill"
+            Source="{local:ImageResourceExtension Rootedfuture.Assets.Images.app_bg.jpg}"
+            RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            </Image>
+            <StackLayout>
+                <Button x:Name="ButtonRetakePhoto" Text="Retake"
+                        CornerRadius="15" 
+                        BackgroundColor="#7B9B5C" 
+                        TextColor="#FFF9E8"
+                        HorizontalOptions="Center"
+                        WidthRequest="150"
+                        Margin="0,20,0,0"
+                    />
+                <Image Margin="20,15,20,0" HorizontalOptions="FillAndExpand" x:Name="takenPhoto"/>
+                <Button x:Name="ButtonAcceptPhoto" Text="Accept"
+                        CornerRadius="15" 
+                        BackgroundColor="#7B9B5C" 
+                        TextColor="#FFF9E8"
+                        HorizontalOptions="Center"
+                        WidthRequest="150"
+                        Margin="0,20,0,0"
+                    />
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

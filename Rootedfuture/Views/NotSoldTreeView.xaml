@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Rootedfuture.Extensions"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Rootedfuture.Views.NotSoldTreeView">
+    <ContentPage.Content>
+        <RelativeLayout Padding="0">
+            <Image
+                Aspect="AspectFill"
+                Source="{local:ImageResourceExtension Rootedfuture.Assets.Images.app_bg.jpg}"
+                RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            </Image>
+            <StackLayout 
+                    Orientation="Vertical" 
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="FillAndExpand" 
+                    Padding="0,0" 
+                    Spacing="10"
+     RelativeLayout.WidthConstraint="{ConstraintExpression 
+                                Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint="{ConstraintExpression 
+                                Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}">
+                <ScrollView>
+                    <StackLayout>
+                        <Label Margin="0,20,0,0" HorizontalOptions="CenterAndExpand">TREE NOT ADOPTED YET</Label>
+
+                        <Button x:Name="ButtonTakePicture" Text="Add new picture"
+                        CornerRadius="15" 
+                        BackgroundColor="#7B9B5C" 
+                        TextColor="#FFF9E8"
+                        HorizontalOptions="Center"
+                        WidthRequest="200"
+                        Margin="0,15,0,20"
+                    />
+
+                        <StackLayout HeightRequest="300" HorizontalOptions="Center">
+                            <StackLayout HeightRequest="300" BindingContext="{x:Reference MostRecentImage}" IsVisible="{Binding IsLoading}">
+                                <ActivityIndicator VerticalOptions="CenterAndExpand" IsRunning="True" />
+                            </StackLayout>
+                            <Image Margin="20,15,20,0" HeightRequest="300" x:Name="MostRecentImage" HorizontalOptions="FillAndExpand">
+                                <Image.Source>
+                                    <UriImageSource CachingEnabled="False" Uri="{Binding treePhotoPath}"/>
+                                </Image.Source>
+                            </Image>
+                        </StackLayout>
+
+                        <Label  Margin="0,20,0,0" HorizontalOptions="Center" Text="Project name:"/>
+                        <Label HorizontalOptions="Center" Text="{Binding projectName}"/>
+
+                        <Label  Margin="0,20,0,0" HorizontalOptions="Center" Text="Tree type:"/>
+                        <Label HorizontalOptions="Center" Text="{Binding treeTypeName}"/>
+
+                        <Label  Margin="0,20,0,0" HorizontalOptions="Center" Text="Description:"/>
+                        <Label HorizontalOptions="Center" Text="{Binding treeTypeDesc}"/>
+
+                        <Button x:Name="Button_GoBackToScanPage" 
+                                    CornerRadius="15" 
+                                    BackgroundColor="#7B9B5C" 
+                                    TextColor="#FFF9E8"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="200"
+                                    Margin="0,20,0,20"
+                                    Text="Back to scan page"
+                                    />
+                </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
